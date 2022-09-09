@@ -11,11 +11,29 @@ This is an end-to-end project building a classification model to predict loan de
 docker pull mysql
 ```
 
+- Create data dir and run container with the local script
+```bash
+mkdir -p mysql/data
+./run-mysql.sh
+```
+
+- You can shutdown the MySQL server with
+```bash
+docker stop mysql
+```
+
 ### MySQL Client Setup
 - Done using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) with an [Ubuntu distro](https://ubuntu.com/)
 
+> You may need to run this [fix](https://github.com/microsoft/WSL/issues/5548#issuecomment-912495487) prior to installing mysql-server
+
 ```bash
-sudo apt -y install mysql-client
+sudo apt -y install mysql-server
+```
+
+- Check that your client can connect
+```bash
+mysql -uloan -ploanpass --protocol=tcp
 ```
 
 ## Links to Resources

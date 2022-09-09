@@ -2,6 +2,22 @@
 
 This is an end-to-end project building a classification model to predict loan default using the [Berka dataset](https://relational.fit.cvut.cz/dataset/Financial).
 
+## Fork Changes
+- Setup scripts to install [Mysql](https://www.mysql.com/) in a [docker container](https://www.docker.com/)
+
+### MySQL Server Setup
+- Pull container
+```bash
+docker pull mysql
+```
+
+### MySQL Client Setup
+- Done using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) with an [Ubuntu distro](https://ubuntu.com/)
+
+```bash
+sudo apt -y install mysql-client
+```
+
 ## Links to Resources
 
 - [My full post on Medium about this project](https://medium.com/@zhouxu_ds/loan-default-prediction-an-end-to-end-ml-project-with-real-bank-data-part-1-1405f7aecb9e)

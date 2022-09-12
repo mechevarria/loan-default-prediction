@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
 name=mysql
+rootpass=mysqlroot
+user=loan
+userpass=loanpass
+
+if [[ ! -f "volume" ]]; then
+    echo "creating mysql data volume"
+    mkdir volume
+fi
 
 if [ $( docker ps -a | grep ${name} | wc -l ) -gt 0 ]; then
     echo "${name} exists"
@@ -10,9 +18,10 @@ else
     docker run -d \
     --name ${name} \
     -p 3306:3306 \
-    -v ${PWD}/mysql/data:/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=mysqlroot \
-    -e MYSQL_USER=loan \
-    -e MYSQL_PASSWORD=loanpass \
+    -v ${PWD}/volume:/var/lib/mysql \
+    -e MYSQL_DATABASE=loan \
+    -e MYSQL_ROOT_PASSWORD=${rootpass} \
+    -e MYSQL_USER=${user} \
+    -e MYSQL_PASSWORD=${userpass} \
     mysql
 fi

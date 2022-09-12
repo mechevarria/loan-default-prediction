@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Account(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/account.asc'
+INFILE '/tmp/data/account.asc'
 INTO TABLE Account
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS Client(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/client.asc'
+INFILE '/tmp/data/client.asc'
 INTO TABLE Client
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Disposition(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/disp.asc'
+INFILE '/tmp/data/disp.asc'
 INTO TABLE Disposition
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `Order`(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/order.asc'
+INFILE '/tmp/data/order.asc'
 INTO TABLE `Order`
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Trans(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/trans.asc'
+INFILE '/tmp/data/trans.asc'
 INTO TABLE Trans
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS Loan(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/loan.asc'
+INFILE '/tmp/data/loan.asc'
 INTO TABLE Loan
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS Card(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/card.asc'
+INFILE '/tmp/data/card.asc'
 INTO TABLE Card
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS District(
 );
 
 LOAD DATA LOCAL
-INFILE '~/git/loan-default-prediction/data/district.asc'
+INFILE '/tmp/data/district.asc'
 INTO TABLE District
 FIELDS TERMINATED BY ';'
 ENCLOSED BY '"'

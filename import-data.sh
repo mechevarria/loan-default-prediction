@@ -3,7 +3,6 @@ rootpass=mysqlroot
 user=loan
 userpass=loanpass
 
-# enable local infile commands
-mysql -uroot -p${rootpass} --protocol=tcp < infile.sql
-
-mysql -u${user} -p${userpass} --protocol=tcp --local-infile=1 < data.sql
+docker cp data/ mysql:/tmp/data
+docker exec mysql bash -c "cd /tmp/data ; mysql -uroot -p${rootpass} --protocol=tcp < infile.sql"
+docker exec mysql bash -c "cd /tmp/data ; mysql -u${user} -p${userpass} --protocol=tcp --local-infile=1 < data.sql"

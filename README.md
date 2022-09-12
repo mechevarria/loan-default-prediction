@@ -3,17 +3,12 @@
 This is an end-to-end project building a classification model to predict loan default using the [Berka dataset](https://relational.fit.cvut.cz/dataset/Financial).
 
 ## Fork Changes
-- Setup scripts to install [Mysql](https://www.mysql.com/) in a [docker container](https://www.docker.com/)
+- Added scripts to install [MySql](https://www.mysql.com/) in a [docker container](https://www.docker.com/) and load using a local `mysql` client
 
 ### MySQL Server Setup
-- Pull container
-```bash
-docker pull mysql
-```
 
 - Create data dir and run container with the local script
 ```bash
-mkdir -p mysql/data
 ./run-mysql.sh
 ```
 
@@ -25,15 +20,22 @@ docker stop mysql
 ### MySQL Client Setup
 - Done using [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/about) with an [Ubuntu distro](https://ubuntu.com/)
 
-> You may need to run this [fix](https://github.com/microsoft/WSL/issues/5548#issuecomment-912495487) prior to installing mysql-server
+> You may need to run this [fix](https://github.com/microsoft/WSL/issues/5548#issuecomment-912495487) after installing mysql-server
 
 ```bash
 sudo apt -y install mysql-server
 ```
 
-- Check that your client can connect
+- Check that your client can connect (assuming you left the `user` and `userpass` variables as default)
 ```bash
 mysql -uloan -ploanpass --protocol=tcp
+```
+
+- You may need to edit the `INFILE` path to reflect your system in `data.sql`. The default directory is `~/git/loan-default-prediction`
+
+- Run the import script
+```bash
+./import-data.sh
 ```
 
 ## Links to Resources

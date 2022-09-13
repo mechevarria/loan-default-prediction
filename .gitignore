@@ -1,2 +1,4 @@
 .env
 volume/*
+ayasdi-sdk*.tar.gz
+loan_default*.csv

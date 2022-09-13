@@ -2,8 +2,10 @@
 
 This is an end-to-end project building a classification model to predict loan default using the [Berka dataset](https://relational.fit.cvut.cz/dataset/Financial).
 
+This fork does additional analysis using the [EurekaAI platform](https://www.symphonyai.com/enterprise-ai-platform/). Please contact [SymphonyAI](https://www.symphonyai.com/contact-us/) to get access to both the [SDK](https://platform.ayasdi.com/sdkdocs/) and [Eureka Workbench](https://platform.ayasdi.com/workbench)
+
 ## Fork Changes
-- Added scripts to install [MySql](https://www.mysql.com/) in a [docker container](https://www.docker.com/) and load using the `mysql` client in the container
+- Added scripts to install [MySql](https://www.mysql.com/) in a [docker container](https://www.docker.com/) and load using the `mysql` client in the container  
 
 ### MySQL Server Setup
 
@@ -22,6 +24,34 @@ docker stop mysql
 - This script will copy the data files and scripts to the container and import using a local `mysql` client
 ```bash
 ./import-data.sh
+```
+
+## Setup
+
+* Install [miniconda](https://docs.conda.io/en/latest/miniconda.html) as an environment wrapper
+* Create an environment
+```bash
+conda create --name sai python=3.7
+conda activate sai
+```
+* Install the [EurekaAI SDK](https://platform.ayasdi.com/sdkdocs/)
+> The SDK tar.gz installer is not included in this source
+```bash
+pip install ayasdi-sdk-3.0.0.7.tar.gz
+pip install python-dotenv
+```
+
+* Setup additional libraries
+```bash
+conda install ipykernel pandas seaborn scikit-learn mysql-connector-python
+```
+
+* Create a file called `.env` in the root directory and put your EurekaAI platform credentials in it along with the Eureka API backend
+> Do not check a .env file into source control
+```properties
+EUREKA_USER="first.last@symphonyai.com"
+EUREKA_PASS="my_password_goes_here"
+AYASDI_APISERVER="http://platform.ayasdi.com/workbench/"
 ```
 
 ## Links to Resources

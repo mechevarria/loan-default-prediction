@@ -5,7 +5,7 @@ rootpass=mysqlroot
 user=loan
 userpass=loanpass
 
-if [[ ! -f "volume" ]]; then
+if [[ ! -d "volume" ]]; then
     echo "creating mysql data volume"
     mkdir volume
 fi
